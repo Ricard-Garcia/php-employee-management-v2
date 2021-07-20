@@ -1,6 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                       -- Employee Manager v2 Database                      */
 /* -------------------------------------------------------------------------- */
+-- Command to access "root" user
+-- mysql -u root -p
 
 -- Checking if already exists
 DROP DATABASE IF EXISTS eemp_man_V2;
