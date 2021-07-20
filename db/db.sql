@@ -45,4 +45,4 @@ VALUES
 (5, "Susan",    "Smith",    "susanmith@baz.com",    "W", 28, "KNT", "Louisville",     43,  445321, 224355488976),
 (6, "Brad",     "Simpson",  "brad@foo.com",         "M", 40, "GEO", "Atlanta",        128, 394221, 6854634522),
 (7, "Neil",     "Walker",   "walkerneil@baz.com",   "M", 42, "TN",  "Nashville",      1,   90143,  45372788192),
-(8, "Michaela", "Thomson",  "mthomson@network.com", "W", 24, "LU",  "New Orleans",    126, 63281,  91232876454)
+(8, "Michaela", "Thomson",  "mthomson@network.com", "W", 24, "LU",  "New Orleans",    126, 63281,  91232876454);
