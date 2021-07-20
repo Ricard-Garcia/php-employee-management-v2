@@ -1,0 +1,9 @@
+.hide {
+  display: none;
+}
+
+.active {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 0.5rem !important;
+}
