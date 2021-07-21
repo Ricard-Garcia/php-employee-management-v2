@@ -20,10 +20,5 @@ class LoginController extends Controller
 
         // Do all the user validation here
         echo "<p>LoginController loaded</p>";
-
-        if (true) {
-            $dashboard = new DashboardController();
-            return $dashboard;
-        }
     }
 }
