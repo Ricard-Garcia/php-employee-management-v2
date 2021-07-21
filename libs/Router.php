@@ -6,7 +6,7 @@ class Router
 {
     function __construct()
     {
-        echo "<p>Router</p>";
+        echo "<p>Router Loaded</p>";
 
         if (isset($_GET['url'])) {
             $url = $_GET['url'];

@@ -3,6 +3,11 @@ require PHP . "head.php";
 ?>
 
 <body>
+
+    <?php
+    require VIEWS . "header.php";
+    ?>
+
     <main class="form-signin">
         <form id="formEmployee" action="./library/employeeController.php" method="PUT">
             <div class="container">
@@ -69,7 +74,13 @@ require PHP . "head.php";
             </div>
         </form>
     </main>
+
+    <?php
+    require VIEWS . "footer.php";
+    ?>
+
+    <script src="<?= JS . "navbar.js" ?>"></script>
+
 </body>
-<script src="../assets/js/navbar.js"></script>
 
 </html>
