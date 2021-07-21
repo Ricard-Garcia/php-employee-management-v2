@@ -1,7 +1,11 @@
 <?php
-require_once "./src/lib/app.php";
+// Config
+require_once "./config/db.php";
+// Libs
+require_once "./libs/Router.php";
+require_once "./libs/Database.php";
 
-$app = new Router();
+$router = new Router();
 /*session_start();
 if (isset($_SESSION["email"])) {
     header("Location: src/Dashboard.php");
