@@ -1,11 +1,11 @@
 <?php
-require_once('./src/controllers/err.php');
+require_once(CONTROLLERS . "ErrorController.php");
 
 class Router
 {
     function __construct()
     {
-        echo "<p>APP</p>";
+        echo "<p>Router</p>";
 
         $url = $_GET['url'];
         $url = rtrim($url, '/');
@@ -13,7 +13,7 @@ class Router
 
         //print_r($url);
 
-        $pathController = './src/controllers/' . $url[0] . '.php';
+        $pathController = CONTROLLERS . $url[0] . '.php';
 
         if (file_exists($pathController)) {
             require_once $pathController;
@@ -23,7 +23,7 @@ class Router
                 $controller->{$url[1]}();
             }
         } else {
-            $controller = new err();
+            $controller = new ErrorController();
         }
     }
 }
