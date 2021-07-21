@@ -5,6 +5,8 @@ require_once "./config/db.php";
 require_once "./libs/Router.php";
 require_once "./libs/Database.php";
 
+
+// Initializing a new Router
 $router = new Router();
 /*session_start();
 if (isset($_SESSION["email"])) {
