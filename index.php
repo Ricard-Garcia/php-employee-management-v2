@@ -1,5 +1,8 @@
 <?php
-session_start();
+require_once "./src/lib/app.php";
+
+$app = new Router();
+/*session_start();
 if (isset($_SESSION["email"])) {
     header("Location: src/Dashboard.php");
 }
@@ -62,4 +65,4 @@ if (isset($_SESSION["email"])) {
 
 </script>
 
-</html>
+</html>*/
