@@ -2,11 +2,10 @@
 
 class EmployeeController extends Controller
 {
-
   function __construct()
   {
     parent::__construct();
-    echo "<p> This is EmployeeController </p>";
+    $this->view->render("employee/index");
   }
 }
 
