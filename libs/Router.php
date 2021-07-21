@@ -11,7 +11,7 @@ class Router
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        //print_r($url);
+        // Add empty(url[0]) functionality
 
         $pathController = CONTROLLERS . $url[0] . '.php';
 
