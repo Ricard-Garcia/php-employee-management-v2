@@ -1,32 +1,60 @@
 <?php
 require_once(CONTROLLERS . "ErrorController.php");
-require_once(CONTROLLERS . "MainController.php");
-
+// require_once(CONTROLLERS . "MainController.php");
 class Router
 {
-    function __construct()
+    public function __construct()
     {
-        echo "<p>Router Loaded</p>";
+        // echo "<p>New Router charged</p>";
+        $url = isset($_GET["url"]) ? $_GET["url"] : null;
+        $url = rtrim($url, "/");
+        $url = explode("/", $url);
 
-        if (isset($_GET['url'])) {
-            $url = $_GET['url'];
-            $url = rtrim($url, '/');
-            $url = explode('/', $url);
+        // echo "This is the url: " . print_r($url, true);
 
-            $pathController = CONTROLLERS . $url[0] . '.php';
+        $firstParam = ucfirst($url[0]);
 
-            if (file_exists($pathController)) {
-                require_once $pathController;
-                $controller = new $url[0];
+        // Load a specific controller
+        if (!empty($url[0])) {
+            $controllerFile = CONTROLLERS . $firstParam . "Controller.php";
+            if (file_exists($controllerFile)) {
+                require $controllerFile;
+                // Defining the final name
+                $controllerName = $firstParam . "Controller";
+                // Instancing the required controller
+                $controller = new $controllerName();
+                // Loading the corresponding model
+                $controller->loadModel($firstParam);
 
-                if (isset($url[1])) {
+                // Look for methods
+                $urlLength =  count($url);
+                if ($urlLength == 1) {
+                    $controller->defaultMethod();
+                } elseif ($urlLength > 1) {
+                    if ($urlLength > 2) {
+                        $param = $url[2];
+                        // Call method with given param
+                        $controller->{$url[1]}($param);
+                    }
+                    // Just load the method
                     $controller->{$url[1]}();
                 }
+                // If no method, just render the view
+                else {
+                    $controller->render();
+                }
             } else {
+                // Add specific message
                 $controller = new ErrorController();
             }
-        } else {
-            $controller = new MainController();
+        }
+        // Load the default controller
+        else {
+            $controllerFile = CONTROLLERS . "IndexController.php";
+            require $controllerFile;
+            $controller = new IndexController();
+            $controller->render();
+            $controller->loadModel("index");
         }
     }
 }

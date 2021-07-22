@@ -25,7 +25,7 @@ header {
 footer {
   height: 30px;
   background-color: blue;
-  font-size: 14px;
+  font-size: 10px;
   color: white;
 }
 
@@ -69,4 +69,12 @@ main {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/* Error page */
+.error-message {
+  color: red;
+  font-size: 40px;
+  text-decoration: wavy;
+  height: 100%;
 }
