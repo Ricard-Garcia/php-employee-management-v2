@@ -6,7 +6,7 @@ class GeneralController extends Controller
     public function __construct()
     {
         parent::__construct();
-        echo "<p>General Controller Loaded</p>";
+        //Add session helper
     }
 
     function defaultMethod()

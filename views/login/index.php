@@ -7,7 +7,7 @@
 //     $_SESSION["noActivity"] = getdate();
 // }
 
-require PHP . "head.php";
+require TEMPLATES . "head.php";
 ?>
 
 <body>

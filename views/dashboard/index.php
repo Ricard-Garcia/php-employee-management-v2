@@ -4,7 +4,7 @@
 // if (!isset($_SESSION["email"])) {
 //   header("Location: ../index.php");
 // }
-require PHP . "head.php";
+require TEMPLATES . "head.php";
 ?>
 
 

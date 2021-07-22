@@ -11,12 +11,12 @@ define("MODELS", BASE_PATH . "/models/");
 
 define("VIEWS", BASE_PATH . "/views/");
 
-define("CSS", "assets/css/");
+define("CSS", BASE_URL . "/assets/css/");
 
-define("HTML", BASE_PATH . "/assets/html/");
+define("HTML", BASE_URL . "/assets/html/");
 
-define("JS", "assets/js/");
+define("JS", BASE_URL . "/assets/js/");
 
-define("PHP", "assets/php/");
+define("TEMPLATES", BASE_PATH . "/views/templates/");
 
-define("MODULES", "node_modules/");
+define("MODULES", BASE_URL . "/node_modules/");
