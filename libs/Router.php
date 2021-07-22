@@ -28,10 +28,13 @@ class Router
 
                 // Look for methods
                 $urlLength =  count($url);
+                // If there's only method
                 if ($urlLength == 1) {
                     $controller->defaultMethod();
                 } elseif ($urlLength > 1) {
+
                     if ($urlLength > 2) {
+
                         $param = $url[2];
                         // Call method with given param
                         $controller->{$url[1]}($param);
@@ -46,6 +49,8 @@ class Router
             } else {
                 // Add specific message
                 $controller = new ErrorController();
+                $controller->view->message = "Not valid controller";
+                $controller->render();
             }
         }
         // Load the default controller
@@ -56,5 +61,10 @@ class Router
             $controller->render();
             $controller->loadModel("index");
         }
+
+        // echo "These are all headers: ";
+        // echo "<pre>";
+        // print_r(getAllHeaders());
+        // echo "</pre>";
     }
 }

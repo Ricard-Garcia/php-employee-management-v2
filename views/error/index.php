@@ -8,7 +8,7 @@ require TEMPLATES . "head.php";
     require VIEWS . "header.php";
     ?>
     <main>
-        <h1 class="error-message">Generic error message</h1>
+        <h1 class="w-100 text-left error-message">Error 400&nbsp;<?php echo $this->message; ?></h1>
     </main>
     <?php
     require VIEWS . "footer.php";

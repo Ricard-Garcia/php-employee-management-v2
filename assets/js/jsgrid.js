@@ -16,9 +16,12 @@ $("#jsGrid").jsGrid({
     loadData: function (filter) {
       return $.ajax({
         type: "GET",
-        url: "library/employeeController.php",
+        url: "getEmployees",
         data: filter,
         dataType: "json",
+        success: function (resp) {
+          console.log("GET: ", resp);
+        },
       });
     },
     insertItem: function (item) {
@@ -50,7 +53,6 @@ $("#jsGrid").jsGrid({
 
   rowClick: function (element) {
     // console.log(element.item.id);
-
     window.location.href = "./employee.php?id=" + element.item.id;
   },
 
@@ -71,12 +73,13 @@ $("#jsGrid").jsGrid({
       name: "emp_no",
       type: "hidden",
       css: "hide",
+      width: 50,
     },
     {
       title: "Name",
       name: "first_name",
       type: "text",
-      width: 150,
+      width: 100,
       validate: "required",
     },
     {
@@ -109,21 +112,21 @@ $("#jsGrid").jsGrid({
       title: "St. Adress",
       name: "streetAddress",
       type: "text",
-      width: 150,
+      width: 80,
       validate: "required",
     },
     {
       title: "State",
       name: "state",
       type: "text",
-      width: 150,
+      width: 80,
       validate: "required",
     },
     {
       title: "Age",
       name: "age",
       type: "number",
-      width: 150,
+      width: 40,
       validate: "required",
     },
     {
@@ -142,7 +145,7 @@ $("#jsGrid").jsGrid({
     },
     {
       type: "control",
-      width: 20,
+      width: 50,
       editButton: false,
     },
   ],
