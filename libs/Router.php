@@ -5,7 +5,7 @@ class Router
 {
     public function __construct()
     {
-        echo "<p>New Router charged</p>";
+        // echo "<p>New Router charged</p>";
         $url = isset($_GET["url"]) ? $_GET["url"] : null;
         $url = rtrim($url, "/");
         $url = explode("/", $url);
@@ -25,6 +25,22 @@ class Router
                 $controller = new $controllerName();
                 // Loading the corresponding model
                 $controller->loadModel($firstParam);
+
+                // Look for methods
+                $urlLength =  count($url);
+                if ($urlLength > 1) {
+                    if ($urlLength > 2) {
+                        $param = $url[2];
+                        // Call method with given param
+                        $controller->{$url[1]}($param);
+                    }
+                    // Just load the method
+                    $controller->{$url[1]}();
+                }
+                // If no method, just render the view
+                else {
+                    $controller->render();
+                }
             } else {
                 // Add specific message
                 $controller = new ErrorController();
@@ -35,6 +51,7 @@ class Router
             $controllerFile = CONTROLLERS . "IndexController.php";
             require $controllerFile;
             $controller = new IndexController();
+            $controller->render();
             $controller->loadModel("index");
         }
     }
