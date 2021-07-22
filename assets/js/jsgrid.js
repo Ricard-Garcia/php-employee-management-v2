@@ -12,6 +12,11 @@ $("#jsGrid").jsGrid({
   selecting: true,
   deleteConfirm: "Do you really want to delete data?",
 
+  rowClick: function (element) {
+    console.log(element.item.emp_no);
+    window.location.href = "getById/" + element.item.emp_no;
+  },
+
   controller: {
     loadData: function (filter) {
       return $.ajax({
@@ -51,11 +56,6 @@ $("#jsGrid").jsGrid({
     console.log(args);
   },
 
-  rowClick: function (element) {
-    // console.log(element.item.id);
-    window.location.href = "./employee.php?id=" + element.item.id;
-  },
-
   // rowClick: function (args) {
   //   var getData = args.item;
   //   var keys = Object.keys(getData);
@@ -73,11 +73,13 @@ $("#jsGrid").jsGrid({
       name: "emp_no",
       type: "hidden",
       css: "hide",
+      align: "left",
       width: 50,
     },
     {
       title: "Name",
       name: "first_name",
+      align: "left",
       type: "text",
       width: 100,
       validate: "required",
@@ -86,7 +88,7 @@ $("#jsGrid").jsGrid({
       title: "Last name",
       name: "last_name",
       type: "hidden",
-      css: "hide",
+      // css: "hide",
     },
     {
       title: "Email",
@@ -99,6 +101,7 @@ $("#jsGrid").jsGrid({
       title: "Gender",
       name: "gender",
       type: "hidden",
+      width: 70,
       css: "hide",
     },
     {
@@ -134,6 +137,7 @@ $("#jsGrid").jsGrid({
       name: "postal_code",
       type: "number",
       width: 150,
+      align: "left",
       validate: "required",
     },
     {
@@ -141,6 +145,7 @@ $("#jsGrid").jsGrid({
       name: "phone_number",
       type: "number",
       width: 150,
+      align: "left",
       validate: "required",
     },
     {

@@ -22,7 +22,7 @@ CREATE TABLE employees (
     age            INT             NOT NULL,
     state          CHAR(5)         NOT NULL,
     city           CHAR(45)        NOT NULL,
-    streetAddress  INT             NOT NULL,
+    street_address INT             NOT NULL,
     postal_code    INT             NOT NULL,
     phone_number   VARCHAR(20)     NOT NULL,
     PRIMARY KEY (emp_no)

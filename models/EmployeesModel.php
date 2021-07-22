@@ -18,8 +18,13 @@ class EmployeesModel extends Model
     function getById($id)
     {
         // echo "<p>GET BY ID MODEL</p>";
-        $query = $this->database->connect()->query("SELECT * FROM employees WHERE emp_no = $id;")->fetch();
-        return json_encode($query);
+        $query = $this->database->connect()->query("SELECT * FROM employees WHERE emp_no = $id;")->fetch(PDO::FETCH_ASSOC);
+        return $query;
+    }
+
+    function createEmployee($data)
+    {
+        // echo "<p>CREATE EMPLOYEE</p>";
     }
 
     function updateEmployee()

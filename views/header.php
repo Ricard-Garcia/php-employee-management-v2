@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a id="dash" class="nav-link active" href="<?= BASE_URL . "/employees/getEmployees" ?>">Dashboard</a>
+                <a id="dash" class="nav-link active" href="<?= BASE_URL . "/employees/defaultMethod" ?>">Dashboard</a>
                 <a id="emp" class="nav-link" href="<?= BASE_URL . "/employees/newEmployee" ?>">Employee Page</a>
             </div>
         </div>
