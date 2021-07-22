@@ -4,7 +4,9 @@ class ErrorController extends Controller
 {
     function __construct()
     {
+        parent::__construct();
         echo "<p>Loaded ErrorController</p>";
-        echo "<p style='color: red'>ERROR, CONTROLLER NOT FOUND</p>";
+        $this->view->render('error/index');
+        // $this->view->message = "CONTROLLER OR MODEL NOT FOUND";
     }
 }
