@@ -7,6 +7,7 @@ class Database
     private $database;
     private $user;
     private $password;
+    private $charset;
     private $error;
 
 
@@ -16,6 +17,7 @@ class Database
         $this->database  = DB;
         $this->user      = USER;
         $this->password  = PASSWORD;
+        $this->charset   = CHARSET;
     }
 
     // Method to connect to DB
@@ -25,7 +27,8 @@ class Database
             $connection = "mysql:host=" . $this->host . ";"
                 . "dbname=" . $this->database . ";"
                 . "user=" . $this->user . ";"
-                . "password=" . $this->password;
+                . "password=" . $this->password . ";"
+                . "charset=" . $this->charset;
 
             $options = [
                 PDO::ATTR_ERRMODE           =>  PDO::ERRMODE_EXCEPTION,
