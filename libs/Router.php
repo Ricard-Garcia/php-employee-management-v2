@@ -28,7 +28,9 @@ class Router
 
                 // Look for methods
                 $urlLength =  count($url);
-                if ($urlLength > 1) {
+                if ($urlLength == 1) {
+                    $controller->defaultMethod();
+                } elseif ($urlLength > 1) {
                     if ($urlLength > 2) {
                         $param = $url[2];
                         // Call method with given param
