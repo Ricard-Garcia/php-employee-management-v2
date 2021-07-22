@@ -27,6 +27,17 @@ class GeneralController extends Controller
         $this->view->render("employee/index");
     }
 
+    function newEmployee()
+    {
+        // Load empty form
+        $this->view->render("employee/index");
+    }
+
+    function createEmployee()
+    {
+        echo "<p>CREATE EMPLOYEE</p>";
+    }
+
     function updateEmployee()
     {
         echo "<p>UPDATE EMPLOYEE</p>";

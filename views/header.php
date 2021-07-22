@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a id="dash" class="nav-link active" href="dashboard.php">Dashboard</a>
-                <a id="emp" class="nav-link" href="">Employee Page</a>
+                <a id="dash" class="nav-link active" href="<?= "general/getEmployees" ?>">Dashboard</a>
+                <a id="emp" class="nav-link" href="<?= "general/newEmployee" ?>">Employee Page</a>
             </div>
         </div>
     </div>
