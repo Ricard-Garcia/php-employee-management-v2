@@ -17,6 +17,7 @@ class GeneralController extends Controller
     function getEmployees()
     {
         echo "<p>GET ALL EMPLOYEES</p>";
+        $this->model->getEmployees();
         $this->view->render("dashboard/index");
     }
 

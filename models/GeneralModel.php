@@ -11,6 +11,8 @@ class GeneralModel extends Model
     function getEmployees()
     {
         echo "<p>GET ALL EMPLOYEES MODEL</p>";
+        $query = $this->database->connect()->query("SELECT * FROM employees;")->fetch();
+        json_encode($query);
     }
     function getById()
     {
