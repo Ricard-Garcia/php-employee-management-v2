@@ -39,7 +39,6 @@ class Database
 
             return $pdo;
         } catch (PDOException $e) {
-
             $this->error = "Error connecting to Database";
             // Render en error view
 
