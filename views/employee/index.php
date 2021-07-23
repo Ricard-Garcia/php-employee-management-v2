@@ -59,6 +59,9 @@ if (isset($this->employee)) {
             <div class="container">
                 <div class="row">
                     <div class="form-floating col-md-6">
+                        <!-- Hidden input with id -->
+                        <input type="hidden" name="emp_no" value="<?= $employee["emp_no"] ?>">
+
                         <label class="mt-2" for="floatingName">Name</label>
                         <input name="first_name" value="<?= $employee["first_name"] ?>" type="text" class="form-control" id="floatingName" placeholder="Employee name" data-bs-toggle="tooltip" data-bs-html="true" autofocus required>
                     </div>
@@ -76,10 +79,9 @@ if (isset($this->employee)) {
                         <label class="mt-2" for="floatingGender">Gender</label>
                         <select name="gender" class="form-control" aria-label="Default select example" required>
                             <option hidden>Choose one</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Other</option>
-                            <option value="3">No one</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <!-- <option value="O">Other</option> -->
                         </select>
                     </div>
                 </div>
@@ -90,13 +92,13 @@ if (isset($this->employee)) {
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingStreetAddress">Street address</label>
-                        <input name="streetAddress" value="<?= $employee["streetAddress"] ?>" type="text" class="form-control" id="floatingStreetAddress" placeholder="Employee street address" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="streetAddress" value="<?= $employee["streetAddress"] ?>" type="number" class="form-control" id="floatingStreetAddress" placeholder="Employee street address" data-bs-toggle="tooltip" data-bs-html="true" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingState">State</label>
-                        <input name="state" value="<?= $employee["state"] ?>" type="text" class="form-control" id="floatingState" placeholder="Employee state" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="state" value="<?= $employee["state"] ?>" type="text" class="form-control" id="floatingState" placeholder="Employee state" data-bs-toggle="tooltip" data-bs-html="true" maxlength="3" required>
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingAge">Age</label>
@@ -110,7 +112,7 @@ if (isset($this->employee)) {
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingPhoneNumber">Phone Number</label>
-                        <input name="phone_number" value="<?= $employee["phone_number"] ?>" type="number" class="form-control" id="floatingPhoneNumber" placeholder="Employe phone number" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="phone_number" value="<?= $employee["phone_number"] ?>" type="string" class="form-control" id="floatingPhoneNumber" placeholder="Employe phone number" data-bs-toggle="tooltip" data-bs-html="true" required>
                     </div>
                 </div>
                 <div class="px-3 row">
