@@ -120,10 +120,6 @@ class EmployeesModel extends Model
 
     function deleteEmployee($id)
     {
-        // echo "<p>DELETE EMPLOYEE MODEL</p>";
-        // $query = $this->database->connect()->query("DELETE FROM employees WHERE emp_no = $id;")->fetch();
-        // return json_encode($query);
-
         // echo "<p>DELETE BY ID MODEL</p>";
         $query = $this->database->connect()->prepare("DELETE FROM employees WHERE emp_no = :emp_no");
 
