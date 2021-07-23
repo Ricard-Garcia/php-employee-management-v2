@@ -23,6 +23,17 @@ if (isset($this->employee)) {
         "phone_number" => $getEmployee["phone_number"]
     ];
 
+    $genderSelect = "";
+    // Setting up select echo string
+    $genderArray = array("M", "W");
+    foreach ($genderArray as $genderItem) {
+        if ($getEmployee["gender"] == $genderItem && $getEmployee["gender"] != "") {
+            $genderSelect .= "<option selected>" . $genderItem . "</option>";
+        } else {
+            $genderSelect .= "<option>" . $genderItem . "</option>";
+        }
+    }
+
     $action = BASE_URL . "/employees/updateEmployee/" . $employee["emp_no"];
 } else {
     // echo "Empty employee";
@@ -42,6 +53,11 @@ if (isset($this->employee)) {
         "postal_code" => null,
         "phone_number" => null
     ];
+
+    $genderSelect = "";
+    $genderSelect .= "<option value='' hidden selected>Select</option>";
+    $genderSelect .= "<option value='M'>M</option>";
+    $genderSelect .= " <option value='W'>W</option>";
 
     $action = BASE_URL . "/employees/createEmployee";
 }
@@ -77,11 +93,8 @@ if (isset($this->employee)) {
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingGender">Gender</label>
-                        <select name="gender" class="form-control" aria-label="Default select example" required>
-                            <option hidden>Choose one</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                            <!-- <option value="O">Other</option> -->
+                        <select id="genderSelect" name="gender" class="form-control" aria-label="Default select example" required>
+                            <?= $genderSelect ?>
                         </select>
                     </div>
                 </div>
@@ -128,7 +141,6 @@ if (isset($this->employee)) {
     ?>
 
     <script src="<?= JS . "navbar.js" ?>"></script>
-
 </body>
 
 </html>

@@ -36,13 +36,6 @@ $("#jsGrid").jsGrid({
         data: item,
       });
     },
-    // updateItem: function (item) {
-    //   return $.ajax({
-    //     type: "PUT",
-    //     url: "library/employeeController.php",
-    //     data: item,
-    //   });
-    // },
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
