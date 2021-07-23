@@ -26,7 +26,14 @@ class EmployeesController extends Controller
             echo "AJAX!";
         } else {
             // echo "NOT AJAX!";
-            $this->view->render("dashboard/index");
+            $session = $this->sessionController->checkSession();
+
+            if ($session) {
+                //header("Location:" . BASE_URL . "/employees/");
+                $this->view->render("dashboard/index");
+            } else {
+                $this->view->render("login/index");
+            }
         }
     }
 

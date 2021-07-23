@@ -25,7 +25,14 @@ class LoginController extends Controller
 
     function defaultMethod()
     {
-        $this->view->render("login/index");
+        $session = $this->sessionController->checkSession();
+
+        if ($session) {
+            header("Location:" . BASE_URL . "/employees/");
+            //$this->view->render("dashboard/index");
+        } else {
+            $this->view->render("login/index");
+        }
     }
 
     function loginUser()
@@ -37,5 +44,10 @@ class LoginController extends Controller
         } else {
             header("Location:" . BASE_URL . "/login?message=error");
         }
+    }
+
+    function logOut()
+    {
+        $this->model->checkLogout();
     }
 }

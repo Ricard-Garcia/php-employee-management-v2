@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="logout">
-        <a class="nav-link active" href="library/sessionHelper.php?logout=true">Logout</a>
+        <a class="nav-link active" href="<?= BASE_URL . "/login/logOut?logout=true" ?>">Logout</a>
     </div>
 </header>

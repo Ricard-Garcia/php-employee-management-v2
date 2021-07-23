@@ -7,6 +7,7 @@ class Controller
     {
         // echo "<p>Loaded Base Controller class </p>";
         $this->view = new View();
+        $this->sessionController = new SessionController();
     }
 
     function loadModel($rawModelName)
