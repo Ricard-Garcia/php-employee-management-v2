@@ -33,10 +33,9 @@ class LoginController extends Controller
         $loginSucces = $this->model->checkUserInfo($_POST);
 
         if ($loginSucces == true) {
-            header("Location:" . BASE_URL . "/general");
+            header("Location:" . BASE_URL . "/employees/");
         } else {
             header("Location:" . BASE_URL . "/login?message=error");
-            //$this->view->render("login/index");
         }
     }
 }
