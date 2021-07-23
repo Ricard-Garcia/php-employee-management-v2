@@ -23,7 +23,7 @@ if (isset($this->employee)) {
         "phone_number" => $getEmployee["phone_number"]
     ];
 
-    $action = "updateEmployee/" . $employee["emp_no"];
+    $action = BASE_URL . "/employees/updateEmployee/" . $employee["emp_no"];
 } else {
     // echo "Empty employee";
 
@@ -43,7 +43,7 @@ if (isset($this->employee)) {
         "phone_number" => null
     ];
 
-    $action = "createEmployee";
+    $action = BASE_URL . "/employees/createEmployee";
 }
 
 ?>
@@ -115,7 +115,7 @@ if (isset($this->employee)) {
                 </div>
                 <div class="px-3 row">
                     <button class="btn btn-lg btn-primary mt-4" type="submit">Submit</button>
-                    <a href=""><button class="btn btn-lg btn-outline-primary mt-4 ml-2" type="button">Return</button></a>
+                    <a href="<?= BASE_URL . "/employees/"; ?>"><button class="btn btn-lg btn-outline-primary mt-4 ml-2" type="button">Return</button></a>
                 </div>
             </div>
         </form>

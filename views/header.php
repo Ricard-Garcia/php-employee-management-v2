@@ -1,4 +1,4 @@
-<header class="p-2 container-fluid d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light">
+<header class="border border-dark border-bottom p-2 container-fluid d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light">
     <div class="d-flex">
         <a class="navbar-brand" href="#">JSGRID</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
