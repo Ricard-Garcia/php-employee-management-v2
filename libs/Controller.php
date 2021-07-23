@@ -21,12 +21,11 @@ class Controller
             $modelName = $ucModel . "Model";
             // Instancing the required model
             $this->model = new $modelName();
-
-            // TEST PRINT
-            // print_r($this->model);
         } else {
             // Add specific message
             $controller = new ErrorController();
+            $controller->view->message = "Not valid model";
+            $controller->render();
         }
     }
 }
