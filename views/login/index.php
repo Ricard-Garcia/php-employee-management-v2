@@ -12,7 +12,7 @@ require TEMPLATES . "head.php";
 
 <body>
     <main class="form-signin d-flex flex-column justify-content-center">
-        <form id="formLogIn" action="<?= CONTROLLERS . "loginController.php" ?>" method="POST">
+        <form id="formLogIn" action="/php-employee-management-v2/login/loginUser" method="POST">
 
             <h1 class="h3 mb-5 fw-normal">Welcome to employee management!</h1>
 
@@ -26,7 +26,7 @@ require TEMPLATES . "head.php";
             </div>
             <!--  warning alert -->
             <?php
-            if ($_REQUEST) {
+            if (isset($_GET["message"])) {
                 if ($_GET["message"] == "error") {
                     echo  '<div id="wrongLogIn" class="alert alert-danger" role="alert">
                         Wrong email or password

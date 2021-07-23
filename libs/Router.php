@@ -50,11 +50,12 @@ class Router
         }
         // Load the default controller
         else {
+            /*
             $controllerFile = CONTROLLERS . "IndexController.php";
             require $controllerFile;
-            $controller = new IndexController();
+            $controller = new LoginController();
             $controller->render();
-            $controller->loadModel("index");
+            $controller->loadModel("index");*/
         }
     }
 }
