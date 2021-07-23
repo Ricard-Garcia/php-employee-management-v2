@@ -11,7 +11,8 @@ class EmployeesController extends Controller
 
     function isAjax()
     {
-        if (!getAllHeaders()["Sec-Fetch-Mode"] = "navigate") {
+        // if (!getAllHeaders()["Sec-Fetch-Mode"] = "navigate") {
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
             return true;
         } else {
             return false;
@@ -20,17 +21,26 @@ class EmployeesController extends Controller
 
     function defaultMethod()
     {
-        $this->view->render("dashboard/index");
+
+        if ($this->isAjax()) {
+            echo "AJAX!";
+        } else {
+            // echo "NOT AJAX!";
+            $this->view->render("dashboard/index");
+        }
     }
 
     function getEmployees()
     {
         $employees = $this->model->getEmployees();
-
-        // echo "AJAX!";
-        header("Content-Type: application/json");
-        http_response_code(200);
-        echo $employees;
+        if ($this->isAjax()) {
+            header("Content-Type: application/json");
+            http_response_code(200);
+            echo $employees;
+        } else {
+            // echo "NOT AJAX!";
+            $this->view->render("dashboard/index");
+        }
     }
 
     function getById($id)
@@ -38,6 +48,7 @@ class EmployeesController extends Controller
         // echo "<p>GET BY ID</p>";
         $employee = $this->model->getById($id);
 
+        // Load populated form
         $this->view->employee = $employee;
         $this->view->render("employee/index");
     }

@@ -36,8 +36,14 @@ footer {
   text-overflow: ellipsis;
 }
 
+.hidden-cell {
+  display: none;
+}
+
 main {
   flex-grow: 1;
+  width: 100%;
+  margin: 0;
 }
 
 .date-field {

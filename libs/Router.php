@@ -38,9 +38,10 @@ class Router
                         $param = $url[2];
                         // Call method with given param
                         $controller->{$url[1]}($param);
+                    } else {
+                        // Just load the method
+                        $controller->{$url[1]}();
                     }
-                    // Just load the method
-                    $controller->{$url[1]}();
                 }
                 // If no method, just render the view
                 else {

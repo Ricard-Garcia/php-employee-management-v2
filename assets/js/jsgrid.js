@@ -71,8 +71,7 @@ $("#jsGrid").jsGrid({
     {
       title: "id",
       name: "emp_no",
-      type: "hidden",
-      css: "hide",
+      css: "hidden-cell",
       align: "left",
       width: 50,
     },
@@ -87,8 +86,7 @@ $("#jsGrid").jsGrid({
     {
       title: "Last name",
       name: "last_name",
-      type: "hidden",
-      // css: "hide",
+      css: "hidden-cell",
     },
     {
       title: "Email",
@@ -102,7 +100,7 @@ $("#jsGrid").jsGrid({
       name: "gender",
       type: "hidden",
       width: 70,
-      css: "hide",
+      css: "hidden-cell",
     },
     {
       title: "City",
