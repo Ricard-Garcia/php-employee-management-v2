@@ -70,9 +70,7 @@ class EmployeesController extends Controller
     function updateEmployee()
     {
         // echo "<p>UPDATE EMPLOYEE</p>";
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+        $this->model->updateEmployee($_POST);
     }
 
     function deleteEmployee()
