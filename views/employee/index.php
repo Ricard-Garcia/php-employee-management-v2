@@ -59,6 +59,9 @@ if (isset($this->employee)) {
             <div class="container">
                 <div class="row">
                     <div class="form-floating col-md-6">
+                        <!-- Hidden input with id -->
+                        <input type="hidden" name="emp_no" value="<?= $employee["emp_no"] ?>">
+
                         <label class="mt-2" for="floatingName">Name</label>
                         <input name="first_name" value="<?= $employee["first_name"] ?>" type="text" class="form-control" id="floatingName" placeholder="Employee name" data-bs-toggle="tooltip" data-bs-html="true" autofocus required>
                     </div>
@@ -76,10 +79,9 @@ if (isset($this->employee)) {
                         <label class="mt-2" for="floatingGender">Gender</label>
                         <select name="gender" class="form-control" aria-label="Default select example" required>
                             <option hidden>Choose one</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Other</option>
-                            <option value="3">No one</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <!-- <option value="O">Other</option> -->
                         </select>
                     </div>
                 </div>

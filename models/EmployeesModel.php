@@ -47,11 +47,8 @@ class EmployeesModel extends Model
 
     function updateEmployee($data)
     {
-        echo "<p>UPDATE EMPLOYEE MODEL</p>";
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
+        // echo "<p>UPDATE EMPLOYEE MODEL</p>";
+        $empNo = $data["emp_no"];
         $firstName = $data["first_name"];
         $lastName = $data["last_name"];
         $email = $data["email"];
@@ -63,9 +60,28 @@ class EmployeesModel extends Model
         $postalCode = $data["postal_code"];
         $phoneNumber = $data["phone_number"];
 
-        $query = $this->database->connect()->query()->fetch(PDO::FETCH_ASSOC);
+        $query = $this->database->connect()->prepare("UPDATE employees SET first_name = :first_name, last_name = :last_name, email = :email, gender = :gender, city = :city, streetAddress = :streetAddress, state = :state, age = :age, postal_code = :postal_code, phone_number = :phone_number WHERE emp_no = :emp_no");
 
-        //TODO add query to database
+        try {
+            $query->execute([
+                "emp_no" => $empNo,
+                "first_name" => $firstName,
+                "last_name" => $lastName,
+                "email" => $email,
+                "gender" => $gender,
+                "city" => $city,
+                "streetAddress" => $streetAddress,
+                "state" => $state,
+                "age" => $age,
+                "postal_code" => $postalCode,
+                "phone_number" => $phoneNumber
+            ]);
+            // $query->fetch(PDO::FETCH_ASSOC);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
     function deleteEmployee($id)

@@ -72,6 +72,11 @@ class EmployeesController extends Controller
     {
         // echo "<p>UPDATE EMPLOYEE</p>";
         $this->model->updateEmployee($_POST);
+
+        // Reload view with updated data
+        $employee = $this->model->getById($_POST["emp_no"]);
+        $this->view->employee = $employee;
+        $this->view->render("employee/index");
     }
 
     function deleteEmployee()
