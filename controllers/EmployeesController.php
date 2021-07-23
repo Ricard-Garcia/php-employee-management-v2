@@ -33,6 +33,7 @@ class EmployeesController extends Controller
     function getEmployees()
     {
         $employees = $this->model->getEmployees();
+
         if ($this->isAjax()) {
             header("Content-Type: application/json");
             http_response_code(200);

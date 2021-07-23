@@ -11,15 +11,33 @@ class EmployeesModel extends Model
     function getEmployees()
     {
         // echo "<p>GET ALL EMPLOYEES MODEL</p>";
-        $query = $this->database->connect()->query("SELECT * FROM employees;")->fetchAll(PDO::FETCH_ASSOC);
-        return json_encode($query);
+        $query = $this->database->connect()->prepare("SELECT * FROM employees");
+
+        try {
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($result);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
     function getById($id)
     {
         // echo "<p>GET BY ID MODEL</p>";
-        $query = $this->database->connect()->query("SELECT * FROM employees WHERE emp_no = $id;")->fetch(PDO::FETCH_ASSOC);
-        return $query;
+        $query = $this->database->connect()->prepare("SELECT * FROM employees WHERE emp_no = :id");
+
+        try {
+            $query->execute([
+                "id" => $id
+            ]);
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
     function createEmployee($data)
