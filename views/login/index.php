@@ -8,6 +8,7 @@
 // }
 
 require TEMPLATES . "head.php";
+//echo $this->test;
 ?>
 
 <body>
@@ -17,7 +18,7 @@ require TEMPLATES . "head.php";
             <h1 class="h3 mb-5 fw-normal">Welcome to employee management!</h1>
 
             <div class="form-floating">
-                <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com" autofocus>
+                <input name="email" type="text" class="form-control" id="floatingEmail" placeholder="name@example.com" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com" autofocus>
                 <label class="mt-2" for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">

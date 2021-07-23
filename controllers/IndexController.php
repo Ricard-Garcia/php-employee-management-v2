@@ -16,7 +16,6 @@
 //     checkUserInfo($data);
 // }
 
-/*
 class IndexController extends Controller
 {
     function __construct()
@@ -28,4 +27,4 @@ class IndexController extends Controller
     {
         $this->view->render("login/index");
     }
-}*/
+}

@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class LoginModel extends Model
 {
 
@@ -29,6 +27,18 @@ class LoginModel extends Model
             } else {
                 $loginSucces = false;
                 return $loginSucces;
+            }
+        }
+    }
+
+    function checkLogout()
+    {
+        if (isset($_GET["logout"])) {
+            unset($_SESSION);
+            session_destroy();
+
+            if (!isset($_SESSION)) {
+                header("location:" . BASE_URL . "/login/");
             }
         }
     }

@@ -34,7 +34,6 @@ class Router
                 } elseif ($urlLength > 1) {
 
                     if ($urlLength > 2) {
-
                         $param = $url[2];
                         // Call method with given param
                         $controller->{$url[1]}($param);
