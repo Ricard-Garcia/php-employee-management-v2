@@ -16,16 +16,27 @@
 //     checkUserInfo($data);
 // }
 
-/*
-class IndexController extends Controller
+class LoginController extends Controller
 {
     function __construct()
     {
         parent::__construct();
     }
 
-    function render()
+    function defaultMethod()
     {
         $this->view->render("login/index");
     }
-}*/
+
+    function loginUser()
+    {
+        $loginSucces = $this->model->checkUserInfo($_POST);
+
+        if ($loginSucces == true) {
+            header("Location:" . BASE_URL . "/general");
+        } else {
+            header("Location:" . BASE_URL . "/login?message=error");
+            //$this->view->render("login/index");
+        }
+    }
+}
