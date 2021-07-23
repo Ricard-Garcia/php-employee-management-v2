@@ -43,6 +43,40 @@ class EmployeesModel extends Model
     function createEmployee($data)
     {
         // echo "<p>CREATE EMPLOYEE</p>";
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        $firstName = $data["first_name"];
+        $lastName = $data["last_name"];
+        $email = $data["email"];
+        $gender = $data["gender"];
+        $city = $data["city"];
+        $streetAddress = $data["streetAddress"];
+        $state = strtoupper($data["state"]);
+        $age = $data["age"];
+        $postalCode = $data["postal_code"];
+        $phoneNumber = $data["phone_number"];
+
+        $query = $this->database->connect()->prepare("INSERT INTO employees (first_name, last_name, email, gender, city, streetAddress, state, age, postal_code, phone_number) VALUES (:first_name, :last_name, :email, :gender, :city, :streetAddress, :state, :age, :postal_code, :phone_number)");
+
+        try {
+            $query->execute([
+                "first_name" => $firstName,
+                "last_name" => $lastName,
+                "email" => $email,
+                "gender" => $gender,
+                "city" => $city,
+                "streetAddress" => $streetAddress,
+                "state" => $state,
+                "age" => $age,
+                "postal_code" => $postalCode,
+                "phone_number" => $phoneNumber
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
     function updateEmployee($data)
@@ -87,7 +121,20 @@ class EmployeesModel extends Model
     function deleteEmployee($id)
     {
         // echo "<p>DELETE EMPLOYEE MODEL</p>";
-        $query = $this->database->connect()->query("DELETE FROM employees WHERE emp_no = $id;")->fetch();
-        return json_encode($query);
+        // $query = $this->database->connect()->query("DELETE FROM employees WHERE emp_no = $id;")->fetch();
+        // return json_encode($query);
+
+        // echo "<p>DELETE BY ID MODEL</p>";
+        $query = $this->database->connect()->prepare("DELETE FROM employees WHERE emp_no = :emp_no");
+
+        try {
+            $query->execute([
+                "emp_no" => $id
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }

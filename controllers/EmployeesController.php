@@ -63,9 +63,8 @@ class EmployeesController extends Controller
     function createEmployee()
     {
         // echo "<p>CREATE EMPLOYEE</p>";
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+        $this->model->createEmployee($_POST);
+        $this->view->render("dashboard/index");
     }
 
     function updateEmployee()
@@ -79,8 +78,9 @@ class EmployeesController extends Controller
         $this->view->render("employee/index");
     }
 
-    function deleteEmployee()
+    function deleteEmployee($id)
     {
-        echo "<p>DELETE EMPLOYEE</p>";
+        // echo "<p>DELETE EMPLOYEE</p>";
+        $this->model->deleteEmployee($id);
     }
 }

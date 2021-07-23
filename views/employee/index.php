@@ -92,13 +92,13 @@ if (isset($this->employee)) {
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingStreetAddress">Street address</label>
-                        <input name="streetAddress" value="<?= $employee["streetAddress"] ?>" type="text" class="form-control" id="floatingStreetAddress" placeholder="Employee street address" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="streetAddress" value="<?= $employee["streetAddress"] ?>" type="number" class="form-control" id="floatingStreetAddress" placeholder="Employee street address" data-bs-toggle="tooltip" data-bs-html="true" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingState">State</label>
-                        <input name="state" value="<?= $employee["state"] ?>" type="text" class="form-control" id="floatingState" placeholder="Employee state" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="state" value="<?= $employee["state"] ?>" type="text" class="form-control" id="floatingState" placeholder="Employee state" data-bs-toggle="tooltip" data-bs-html="true" maxlength="3" required>
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingAge">Age</label>
@@ -112,7 +112,7 @@ if (isset($this->employee)) {
                     </div>
                     <div class="form-floating col-md-6">
                         <label class="mt-2" for="floatingPhoneNumber">Phone Number</label>
-                        <input name="phone_number" value="<?= $employee["phone_number"] ?>" type="number" class="form-control" id="floatingPhoneNumber" placeholder="Employe phone number" data-bs-toggle="tooltip" data-bs-html="true" required>
+                        <input name="phone_number" value="<?= $employee["phone_number"] ?>" type="string" class="form-control" id="floatingPhoneNumber" placeholder="Employe phone number" data-bs-toggle="tooltip" data-bs-html="true" required>
                     </div>
                 </div>
                 <div class="px-3 row">

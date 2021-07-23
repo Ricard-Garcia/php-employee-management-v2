@@ -36,17 +36,17 @@ $("#jsGrid").jsGrid({
         data: item,
       });
     },
-    updateItem: function (item) {
-      return $.ajax({
-        type: "PUT",
-        url: "library/employeeController.php",
-        data: item,
-      });
-    },
+    // updateItem: function (item) {
+    //   return $.ajax({
+    //     type: "PUT",
+    //     url: "library/employeeController.php",
+    //     data: item,
+    //   });
+    // },
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
-        url: "library/employeeController.php",
+        url: "deleteEmployee/" + item.emp_no,
         data: item,
       });
     },
@@ -55,17 +55,6 @@ $("#jsGrid").jsGrid({
   onItemInserted: function (args) {
     console.log(args);
   },
-
-  // rowClick: function (args) {
-  //   var getData = args.item;
-  //   var keys = Object.keys(getData);
-  //   var text = [];
-
-  //   $.each(keys, function (index, value) {
-  //     text.push(value + " : " + getData[value]);
-  //   });
-  //   alert(text.join(", "));
-  // },
 
   fields: [
     {
