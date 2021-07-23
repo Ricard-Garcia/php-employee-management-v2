@@ -12,7 +12,7 @@ require TEMPLATES . "head.php";
 ?>
 
 <body>
-    <main class="form-signin d-flex flex-column justify-content-center">
+    <main class="form-signin d-flex justify-content-center align-items-center">
         <form id="formLogIn" action="<?= BASE_URL . "/login/loginUser"; ?>" method="POST">
 
             <h1 class="h3 mb-5 fw-normal">Welcome to employee management!</h1>

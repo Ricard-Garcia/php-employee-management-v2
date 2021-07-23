@@ -40,6 +40,7 @@ class EmployeesController extends Controller
     function getEmployees()
     {
         $employees = $this->model->getEmployees();
+
         if ($this->isAjax()) {
             header("Content-Type: application/json");
             http_response_code(200);
@@ -69,19 +70,24 @@ class EmployeesController extends Controller
     function createEmployee()
     {
         // echo "<p>CREATE EMPLOYEE</p>";
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+        $this->model->createEmployee($_POST);
+        $this->view->render("dashboard/index");
     }
 
     function updateEmployee()
     {
         // echo "<p>UPDATE EMPLOYEE</p>";
         $this->model->updateEmployee($_POST);
+
+        // Reload view with updated data
+        $employee = $this->model->getById($_POST["emp_no"]);
+        $this->view->employee = $employee;
+        $this->view->render("employee/index");
     }
 
-    function deleteEmployee()
+    function deleteEmployee($id)
     {
-        echo "<p>DELETE EMPLOYEE</p>";
+        // echo "<p>DELETE EMPLOYEE</p>";
+        $this->model->deleteEmployee($id);
     }
 }
