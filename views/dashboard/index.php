@@ -1,9 +1,4 @@
 <?php
-// include "library/sessionHelper.php";
-
-// if (!isset($_SESSION["email"])) {
-//   header("Location: ../index.php");
-// }
 require TEMPLATES . "head.php";
 ?>
 

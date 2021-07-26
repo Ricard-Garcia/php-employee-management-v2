@@ -35,7 +35,6 @@ $("#jsGrid").jsGrid({
         url: "createEmployee",
         data: item,
         success: function (resp) {
-          console.log("Inserted employee: ", resp);
           $("#jsGrid").jsGrid("option", "inserting", false);
         },
       });
@@ -113,6 +112,7 @@ $("#jsGrid").jsGrid({
       title: "Age",
       name: "age",
       type: "number",
+      align: "left",
       width: 40,
       validate: "required",
     },

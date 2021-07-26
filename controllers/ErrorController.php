@@ -6,7 +6,6 @@ class ErrorController extends Controller
     {
         parent::__construct();
         $this->view->message = "";
-        // echo "<p>Loaded ErrorController</p>";
     }
 
     function render()

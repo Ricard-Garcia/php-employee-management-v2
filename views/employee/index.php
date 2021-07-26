@@ -3,7 +3,6 @@ require TEMPLATES . "head.php";
 
 // Set employee array
 if (isset($this->employee)) {
-    // echo "Has employee";
 
     $formMethod = "PUT";
 
@@ -38,8 +37,6 @@ if (isset($this->employee)) {
 
     $action = BASE_URL . "/employees/updateEmployee/" . $employee["emp_no"];
 } else {
-    // echo "Empty employee";
-
     $formMethod = "POST";
 
     $employee = [

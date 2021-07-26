@@ -10,7 +10,6 @@ class EmployeesController extends Controller
 
     function isAjax()
     {
-        // if (!getAllHeaders()["Sec-Fetch-Mode"] = "navigate") {
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
             return true;
         } else {
@@ -23,7 +22,6 @@ class EmployeesController extends Controller
         $session = $this->sessionController->checkSession();
 
         if ($session) {
-            //header("Location:" . BASE_URL . "/employees/");
             $this->view->render("dashboard/index");
         } else {
             $this->view->render("login/index");
@@ -39,14 +37,12 @@ class EmployeesController extends Controller
             http_response_code(200);
             echo $employees;
         } else {
-            // echo "NOT AJAX!";
             $this->view->render("dashboard/index");
         }
     }
 
     function getById($id)
     {
-        // echo "<p>GET BY ID</p>";
         $employee = $this->model->getById($id);
 
         // Load populated form
@@ -62,13 +58,10 @@ class EmployeesController extends Controller
 
     function createEmployee()
     {
-        // echo "<p>CREATE EMPLOYEE</p>";
         if ($this->isAjax()) {
-            // echo "AJAX!";
             $this->model->createEmployee($_POST);
             http_response_code(200);
         } else {
-            // echo "NOT AJAX!";
             header("Location:" . BASE_URL . "/employees/");
             $this->view->render("dashboard/index");
         }
@@ -76,7 +69,6 @@ class EmployeesController extends Controller
 
     function updateEmployee()
     {
-        // echo "<p>UPDATE EMPLOYEE</p>";
         $this->model->updateEmployee($_POST);
 
         // Reload view with updated data
@@ -87,7 +79,6 @@ class EmployeesController extends Controller
 
     function deleteEmployee($id)
     {
-        // echo "<p>DELETE EMPLOYEE</p>";
         $this->model->deleteEmployee($id);
     }
 }

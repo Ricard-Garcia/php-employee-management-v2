@@ -1,14 +1,5 @@
 <?php
-// session_start();
-// if (isset($_SESSION["email"])) {
-//     header("Location: src/Dashboard.php");
-// }
-// if (!isset($_SESSION["noActivity"])) {
-//     $_SESSION["noActivity"] = getdate();
-// }
-
 require TEMPLATES . "head.php";
-//echo $this->test;
 ?>
 
 <body>

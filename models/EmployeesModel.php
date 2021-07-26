@@ -10,7 +10,6 @@ class EmployeesModel extends Model
 
     function getEmployees()
     {
-        // echo "<p>GET ALL EMPLOYEES MODEL</p>";
         $query = $this->database->connect()->prepare("SELECT * FROM employees");
 
         try {
@@ -25,7 +24,6 @@ class EmployeesModel extends Model
 
     function getById($id)
     {
-        // echo "<p>GET BY ID MODEL</p>";
         $query = $this->database->connect()->prepare("SELECT * FROM employees WHERE emp_no = :id");
 
         try {
@@ -85,7 +83,6 @@ class EmployeesModel extends Model
 
     function updateEmployee($data)
     {
-        // echo "<p>UPDATE EMPLOYEE MODEL</p>";
         $empNo = $data["emp_no"];
         $firstName = $data["first_name"];
         $lastName = $data["last_name"];
@@ -114,7 +111,6 @@ class EmployeesModel extends Model
                 "postal_code" => $postalCode,
                 "phone_number" => $phoneNumber
             ]);
-            // $query->fetch(PDO::FETCH_ASSOC);
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -124,7 +120,6 @@ class EmployeesModel extends Model
 
     function deleteEmployee($id)
     {
-        // echo "<p>DELETE BY ID MODEL</p>";
         $query = $this->database->connect()->prepare("DELETE FROM employees WHERE emp_no = :emp_no");
 
         try {

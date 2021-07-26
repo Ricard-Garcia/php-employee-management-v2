@@ -10,7 +10,6 @@ class Database
     private $charset;
     private $error;
 
-
     public function __construct()
     {
         $this->host      = HOST;
@@ -40,7 +39,8 @@ class Database
             $pdo = null;
         } catch (PDOException $e) {
             $this->error = "Error connecting to Database";
-            // Render en error view
+            echo $e->getMessage();
+            return false;
         }
     }
 };
