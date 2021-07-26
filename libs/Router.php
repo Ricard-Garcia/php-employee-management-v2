@@ -32,10 +32,10 @@ class Router
                             $controller->{$url[1]}();
                         }
                     } else {
-                        if (session_status() == PHP_SESSION_NONE) {
-                            header('Location:' . BASE_URL . '/login/');
-                        } else {
+                        if ($url[0] == "employees") {
                             header('Location:' . BASE_URL . '/employees/');
+                        } else {
+                            header('Location:' . BASE_URL . '/login/');
                         }
                     }
                 }
@@ -45,10 +45,10 @@ class Router
                 }
             } else {
                 // Error controling
-                if (session_status() == PHP_SESSION_NONE) {
-                    header('Location:' . BASE_URL . '/login/');
-                } else {
+                if ($url[0] == "employees") {
                     header('Location:' . BASE_URL . '/employees/');
+                } else {
+                    header('Location:' . BASE_URL . '/login/');
                 }
             }
         }
