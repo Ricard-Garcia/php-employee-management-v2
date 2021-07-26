@@ -55,17 +55,11 @@ class Router
         }
         // Load the default controller
         else {
-            /*
-            $controllerFile = CONTROLLERS . "IndexController.php";
+            $controllerFile = CONTROLLERS . "LoginController.php";
             require $controllerFile;
             $controller = new LoginController();
-            $controller->render();
-            $controller->loadModel("index");*/
+            $controller->defaultMethod();
+            $controller->loadModel("login");
         }
-
-        // echo "These are all headers: ";
-        // echo "<pre>";
-        // print_r(getAllHeaders());
-        // echo "</pre>";
     }
 }

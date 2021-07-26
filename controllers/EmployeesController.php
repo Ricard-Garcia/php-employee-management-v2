@@ -71,6 +71,7 @@ class EmployeesController extends Controller
     {
         // echo "<p>CREATE EMPLOYEE</p>";
         $this->model->createEmployee($_POST);
+        header("Location:" . BASE_URL . "/employees/");
         $this->view->render("dashboard/index");
     }
 
