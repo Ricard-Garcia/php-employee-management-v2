@@ -1,16 +1,13 @@
 <?php
 require_once(CONTROLLERS . "ErrorController.php");
-// require_once(CONTROLLERS . "MainController.php");
 class Router
 {
     public function __construct()
     {
-        // echo "<p>New Router charged</p>";
+
         $url = isset($_GET["url"]) ? $_GET["url"] : null;
         $url = rtrim($url, "/");
         $url = explode("/", $url);
-
-        // echo "This is the url: " . print_r($url, true);
 
         $firstParam = ucfirst($url[0]);
 
@@ -32,7 +29,6 @@ class Router
                 if ($urlLength == 1) {
                     $controller->defaultMethod();
                 } elseif ($urlLength > 1) {
-
                     if ($urlLength > 2) {
                         $param = $url[2];
                         // Call method with given param
@@ -48,18 +44,25 @@ class Router
                 }
             } else {
                 // Add specific message
-                $controller = new ErrorController();
-                $controller->view->message = "Not valid controller";
-                $controller->render();
+                if (session_status() == PHP_SESSION_NONE) {
+                    header('Location:' . BASE_URL . '/login/');
+                } else {
+                    header('Location:' . BASE_URL . '/employees/');
+                }
             }
         }
         // Load the default controller
         else {
-            $controllerFile = CONTROLLERS . "LoginController.php";
-            require $controllerFile;
-            $controller = new LoginController();
-            $controller->defaultMethod();
-            $controller->loadModel("login");
+            if (session_status() == PHP_SESSION_NONE) {
+                header('Location:' . BASE_URL . '/login/');
+            } else {
+                header('Location:' . BASE_URL . '/employees/');
+            }
         }
+
+        // echo "These are all headers: ";
+        // echo "<pre>";
+        // print_r(getAllHeaders());
+        // echo "</pre>";
     }
 }
