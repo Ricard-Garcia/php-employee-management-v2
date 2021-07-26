@@ -9,7 +9,6 @@ class Database
     private $password;
     private $charset;
     private $error;
-    private $connection;
 
 
     public function __construct()
@@ -19,30 +18,33 @@ class Database
         $this->user      = USER;
         $this->password  = PASSWORD;
         $this->charset   = CHARSET;
-        $this->connection = CONNECTION;
     }
 
     // Method to connect to DB
     public function connect()
     {
         try {
+            $connection = "mysql:host=" . $this->host . ";"
+                . "dbname=" . $this->database . ";"
+                . "user=" . $this->user . ";"
+                . "password=" . $this->password . ";"
+                . "charset=" . $this->charset;
+
             $options = [
                 PDO::ATTR_ERRMODE           =>  PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES  => FALSE,
             ];
 
-            $pdo = new PDO($this->connection, $this->user, $this->password, $options);
-
+            $pdo = new PDO($connection, $this->user, $this->password, $options);
             return $pdo;
+            $pdo = null;
         } catch (PDOException $e) {
             $this->error = "Error connecting to Database";
             // Render en error view
-
         }
     }
 
     public function __destruct()
     {
-        $this->mysqli->close();
     }
 };
