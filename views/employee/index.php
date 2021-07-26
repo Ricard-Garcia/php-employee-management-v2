@@ -70,7 +70,7 @@ if (isset($this->employee)) {
     ?>
 
     <main class="pt-4 form-signin container-fluid">
-        <form class="p-0 w-75" id="formEmployee" action="<?= $action ?>" method="POST">
+        <form class="p-0 pb-4 w-100" id="formEmployee" action="<?= $action ?>" method="POST">
             <div class="container">
                 <div class="row">
                     <div class="form-floating col-md-6">
