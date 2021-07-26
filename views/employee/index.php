@@ -69,7 +69,7 @@ if (isset($this->employee)) {
     require VIEWS . "header.php";
     ?>
 
-    <main class="form-signin container-fluid">
+    <main class="pt-4 form-signin container-fluid">
         <form class="p-0 w-75" id="formEmployee" action="<?= $action ?>" method="POST">
             <div class="container">
                 <div class="row">
@@ -128,8 +128,8 @@ if (isset($this->employee)) {
                     </div>
                 </div>
                 <div class="px-3 row">
-                    <button class="btn btn-lg btn-primary mt-4" type="submit">Submit</button>
-                    <a href="<?= BASE_URL . "/employees/"; ?>"><button class="btn btn-lg btn-outline-primary mt-4 ml-2" type="button">Return</button></a>
+                    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+                    <a href="<?= BASE_URL . "/employees/"; ?>"><button class="btn btn-outline-primary mt-4 ml-2" type="button">Return</button></a>
                 </div>
             </div>
         </form>
