@@ -1,79 +1,112 @@
-`#php` `#mvc` `#master-in-software-engineering`
+`#html` `#css` `#js` `#php` `#master-in-software-engineering`
 
-# Employee Management V2 <!-- omit in toc -->
+# PHP Employee Manager v1 <!-- omit in toc -->
 
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
-</p>
+> This current repository contains an employee manager that uses Manager and Controller PHP files to make Database queries and load data to a JSGrid and to forms.
 
-> This project provides an easy-to-use interface to manage employees information. The application user case starts with an user log in, and allows the user to read, create, delete and update the employee´s information. The user and employee data is stored in a database.
-
-> This project objective is to create a file structure following the MVC pattern, with a basic router implementation and OOP approach.
+> This app also alows to CRUD (Create Re Update Delete) employees both in Dashboard and Employee's page.
 
 ## Index <!-- omit in toc -->
 
-- [Requirements](#requirements)
-- [Install - Run](#install---run)
-- [Technologies used](#technologies-used)
-- [Download project](#download-project)
-- [Usage](#usage)
-- [Based on](#based-on)
+- [Project key points](#project-key-points)
+- [Directory structure](#directory-structure)
+- [Built with](#built-with)
+- [Resources](#resources)
+- [TODO](#todo)
+- [Bugs](#bugs)
+- [Contributors](#contributors)
 
-## Requirements
+## Project key points
 
-- You need to have a database with all the employees and users in your mysql workspace. We provide you with all the required queries to create the database, its tables and insert mock data inside the **resources** folder.
-- Set your database configuration on the **config/db.php** file. (username, password, dbname etc.)
+1. Design a database
+2. Implementation of a database
+3. Implementation of a MVC pattern
+4. CRUD functionality
 
-## Install - Run
+## Directory structure
 
-The project dependencies are already referenced in the **package-lock.json** file in the root folder. For that reason, it is only necesary to run the following command to allow these to work:
+This directory strcuture establishes the basic archictecture in which the MVC pattern will be exectued in this project.
 
-```sh
-npm instal
+```bash
+
+repo
+ ├── node_modules
+ ├── .gitignore
+ ├── assets
+ ├── config
+ ├── db
+ ├── libs
+ │     ├── Router.php
+ │     ├── Controller.php
+ │     ├── Model.php
+ │     ├── View.php
+ │     ├── Database.php
+ │     └── sessionHelper.php
+ ├── models
+ │     ├── EmployeesModel.php
+ │     └── LoginModel.php
+ ├── controllers
+ │     ├── EmployeesController.php
+ │     ├── LoginController.php
+ │     ├── SessionController.php
+ │     └── ErrorController.php
+ ├── views
+ │     ├── login/index.php
+ │     ├── dashboard/index.php
+ │     ├── employee/index.php
+ │     └── error/index.php
+ └── index.php (main controller)
+
 ```
 
-In order to complete/execute this project, the set up of a server environment and PHP interpreter is needed. You need to have at least PHP v7.4 or above to develop this project, which is capable of running PHP to its latest version.
+- `assets`: css & js.
+- `config`: base constants.
+- `db`: initial database.
+- `libs`: base classes that will be extended in the app.
 
-- XAMPP with PHP >= 7.4
+## Built with
 
-## Technologies used
+\* HTML
 
-\* Visual Studio Code - Developement IDE
+\* CSS
 
-\* HTML - Markup Language
+\* JS (jQuery)
 
-\* CSS - Style Sheet Language
+\* PHP
 
-\* Javascript - Programming Language
+## Resources
 
-\* Bootstrap - Front-end Library
+### PHP
 
-\* JQuery - JS library
+- [OOP (Object Oriented Programming) in PHP](https://www.php.net/manual/es/language.oop5.php)
+- [PDO (PHP Data Objects) in PHP](https://www.php.net/manual/en/intro.pdo.php)
+- [Class constructors & destructors](https://www.php.net/manual/es/language.oop5.decon.php)
 
-\* JS-Grid - JS library
+### Docs 👀
 
-\* PHP - Scripting language
+- [JsGrid Documentation](http://js-grid.com/docs/)
 
-\* XAMPP - Open source cross-platform web server
+### Libraries
 
-## Download project
+- [Bootstrap](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [JsGrid](http://js-grid.com/)
 
-To download or install this project in your local computer, either clone the repository or downdload. In order to run the project, please refer to the **requirements** and **install** section in this README file.
+## TODO 🤝
 
-## Usage
+- Add admins.
+- Responsive design.
 
-```sh
-This project could be used to manage employee information.
+## Bugs 🚨
+
+- Bootstrap alerts might appear when hard reload pages.
+
+## Contributors ✨
+
+👤 [Hayk Petrosyan](https://github.com/haykbit)
+
+👤 [Ricard Garcia](https://github.com/Ricard-Garcia)
+
 ```
 
-## Based on
-
-This repository is based on a past delivery from master's students:
-
-👤 **Víctor Martínez**
-
-👤 **Ismael Vázquez**
-
----
-
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+```
