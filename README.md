@@ -1,6 +1,6 @@
 `#html` `#css` `#js` `#php` `#master-in-software-engineering`
 
-# PHP Employee Manager v1 <!-- omit in toc -->
+# PHP Employee Manager v2 <!-- omit in toc -->
 
 > This current repository contains an employee manager that uses Manager and Controller PHP files to make Database queries and load data to a JSGrid and to forms.
 
@@ -107,6 +107,9 @@ repo
 
 👤 [Ricard Garcia](https://github.com/Ricard-Garcia)
 
-```
-
-```
+<!-- <table>
+  <tr>
+    <td align="center"><a href="https://github.com/Ricard-Garcia"><img src="https://avatars.githubusercontent.com/u/80328331?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ricard-Garcia</b></sub></a><br /><a href="https://github.com/Ricard-Garcia/php-employee-management-v2/commits?author=Ricard-Garcia" title="Code">💻</a> <a href="#design-Ricard-Garcia" title="Design">🎨</a> <a href="#ideas-Ricard-Garcia" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-Ricard-Garcia" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/mhfortuna"><img src="https://avatars.githubusercontent.com/u/66578026?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mathias Fortuna</b></sub></a><br /><a href="https://github.com/Ricard-Garcia/php-employee-management-v2/commits?author=mhfortuna" title="Code">💻</a> <a href="#design-mhfortuna" title="Design">🎨</a> <a href="#ideas-mhfortuna" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-mhfortuna" title="Project Management">📆</a></td>
+  </tr>
+</table> -->
