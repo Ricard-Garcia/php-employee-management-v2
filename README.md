@@ -1,4 +1,4 @@
-`#html` `#css` `#js` `#php` `#master-in-software-engineering`
+`#css` `#js` `#php` `#oop` `#master-in-software-engineering`
 
 # PHP Employee Manager v2 <!-- omit in toc -->
 
