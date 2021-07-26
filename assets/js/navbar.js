@@ -1,5 +1,15 @@
 var current = window.location.href;
 
+employees = document.getElementById("emp");
+dashboard = document.getElementById("dash");
+
+if(current.includes("getById") || current.includes("newEmployee") ) {
+  employees.classList.add('active');
+  dashboard.classList.remove('active');
+} else {
+  dashboard.classList.add('active');
+}
+
 var timer = setInterval(function () {
   auto_logout();
 }, 100000);
