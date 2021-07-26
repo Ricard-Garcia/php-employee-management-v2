@@ -21,19 +21,13 @@ class EmployeesController extends Controller
 
     function defaultMethod()
     {
+        $session = $this->sessionController->checkSession();
 
-        if ($this->isAjax()) {
-            echo "AJAX!";
+        if ($session) {
+            //header("Location:" . BASE_URL . "/employees/");
+            $this->view->render("dashboard/index");
         } else {
-            // echo "NOT AJAX!";
-            $session = $this->sessionController->checkSession();
-
-            if ($session) {
-                //header("Location:" . BASE_URL . "/employees/");
-                $this->view->render("dashboard/index");
-            } else {
-                $this->view->render("login/index");
-            }
+            $this->view->render("login/index");
         }
     }
 
@@ -71,6 +65,7 @@ class EmployeesController extends Controller
     {
         // echo "<p>CREATE EMPLOYEE</p>";
         $this->model->createEmployee($_POST);
+        header("Location:" . BASE_URL . "/employees/");
         $this->view->render("dashboard/index");
     }
 
