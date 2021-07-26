@@ -32,8 +32,12 @@ $("#jsGrid").jsGrid({
     insertItem: function (item) {
       return $.ajax({
         type: "POST",
-        url: "library/employeeController.php",
+        url: "createEmployee",
         data: item,
+        success: function (resp) {
+          console.log("Inserted employee: ", resp);
+          $("#jsGrid").jsGrid("option", "inserting", false);
+        },
       });
     },
     deleteItem: function (item) {

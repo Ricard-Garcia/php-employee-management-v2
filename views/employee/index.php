@@ -25,10 +25,12 @@ if (isset($this->employee)) {
 
     $genderSelect = "";
     // Setting up select echo string
-    $genderArray = array("M", "W");
+    $genderArray = array(null, "M", "W");
     foreach ($genderArray as $genderItem) {
-        if ($getEmployee["gender"] == $genderItem && $getEmployee["gender"] != "") {
+        if ($getEmployee["gender"] == $genderItem && $getEmployee["gender"] != null) {
             $genderSelect .= "<option selected>" . $genderItem . "</option>";
+        } elseif ($getEmployee["gender"] == $genderItem && $getEmployee["gender"] == null) {
+            $genderSelect .= "<option value='' hidden selected>Select</option>";
         } else {
             $genderSelect .= "<option>" . $genderItem . "</option>";
         }
