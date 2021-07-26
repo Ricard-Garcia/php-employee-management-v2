@@ -97,10 +97,6 @@ repo
 - Add admins.
 - Responsive design.
 
-## Bugs 🚨
-
-- Bootstrap alerts might appear when hard reload pages.
-
 ## Contributors ✨
 
 👤 [Hayk Petrosyan](https://github.com/haykbit)
