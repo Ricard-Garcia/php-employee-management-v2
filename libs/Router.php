@@ -16,26 +16,27 @@ class Router
             $controllerFile = CONTROLLERS . $firstParam . "Controller.php";
             if (file_exists($controllerFile)) {
                 require $controllerFile;
-                // Defining the final name
                 $controllerName = $firstParam . "Controller";
-                // Instancing the required controller
                 $controller = new $controllerName();
-                // Loading the corresponding model
                 $controller->loadModel($firstParam);
 
-                // Look for methods
                 $urlLength =  count($url);
-                // If there's only method
                 if ($urlLength == 1) {
                     $controller->defaultMethod();
                 } elseif ($urlLength > 1) {
-                    if ($urlLength > 2) {
-                        $param = $url[2];
-                        // Call method with given param
-                        $controller->{$url[1]}($param);
+                    if (method_exists($controller, $url[1])) {
+                        if ($urlLength > 2) {
+                            $param = $url[2];
+                            $controller->{$url[1]}($param);
+                        } else {
+                            $controller->{$url[1]}();
+                        }
                     } else {
-                        // Just load the method
-                        $controller->{$url[1]}();
+                        if (session_status() == PHP_SESSION_NONE) {
+                            header('Location:' . BASE_URL . '/login/');
+                        } else {
+                            header('Location:' . BASE_URL . '/employees/');
+                        }
                     }
                 }
                 // If no method, just render the view
@@ -43,7 +44,7 @@ class Router
                     $controller->render();
                 }
             } else {
-                // Add specific message
+                // Error controling
                 if (session_status() == PHP_SESSION_NONE) {
                     header('Location:' . BASE_URL . '/login/');
                 } else {
@@ -59,10 +60,5 @@ class Router
                 header('Location:' . BASE_URL . '/employees/');
             }
         }
-
-        // echo "These are all headers: ";
-        // echo "<pre>";
-        // print_r(getAllHeaders());
-        // echo "</pre>";
     }
 }
