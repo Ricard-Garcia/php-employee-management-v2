@@ -42,14 +42,18 @@ class EmployeesModel extends Model
 
     function createEmployee($data)
     {
-        // echo "<p>CREATE EMPLOYEE</p>";
-        // echo "<pre>";
-        // print_r($data);
-        // echo "</pre>";
+        if ($data["last_name"] == "") {
+            $comingLastName = null;
+            $comingGender = null;
+        } else {
+            $comingLastName = $data["last_name"];
+            $comingGender = $data["gender"];
+        }
+
         $firstName = $data["first_name"];
-        $lastName = $data["last_name"];
+        $lastName = $comingLastName;
         $email = $data["email"];
-        $gender = $data["gender"];
+        $gender = $comingGender;
         $city = $data["city"];
         $streetAddress = $data["streetAddress"];
         $state = strtoupper($data["state"]);

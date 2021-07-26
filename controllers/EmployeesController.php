@@ -6,7 +6,6 @@ class EmployeesController extends Controller
     public function __construct()
     {
         parent::__construct();
-        //Add session helper
     }
 
     function isAjax()
@@ -64,9 +63,15 @@ class EmployeesController extends Controller
     function createEmployee()
     {
         // echo "<p>CREATE EMPLOYEE</p>";
-        $this->model->createEmployee($_POST);
-        header("Location:" . BASE_URL . "/employees/");
-        $this->view->render("dashboard/index");
+        if ($this->isAjax()) {
+            // echo "AJAX!";
+            $this->model->createEmployee($_POST);
+            http_response_code(200);
+        } else {
+            // echo "NOT AJAX!";
+            header("Location:" . BASE_URL . "/employees/");
+            $this->view->render("dashboard/index");
+        }
     }
 
     function updateEmployee()
