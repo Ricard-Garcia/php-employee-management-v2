@@ -3,11 +3,11 @@ var current = window.location.href;
 employees = document.getElementById("emp");
 dashboard = document.getElementById("dash");
 
-if(current.includes("getById") || current.includes("newEmployee") ) {
-  employees.classList.add('active');
-  dashboard.classList.remove('active');
+if (current.includes("getById") || current.includes("newEmployee")) {
+  employees.classList.add("active");
+  dashboard.classList.remove("active");
 } else {
-  dashboard.classList.add('active');
+  dashboard.classList.add("active");
 }
 
 var timer = setInterval(function () {
@@ -27,7 +27,7 @@ function auto_logout() {
   ) {
     if (current.includes("employees")) {
       window.location =
-        "http://localhost:8888/php-employee-management-v2/login/logOut?logout=true";
+        "http://localhost:8888/20.1-Php-Employee-Management-v2/login/logOut?logout=true";
     }
   }
 }
