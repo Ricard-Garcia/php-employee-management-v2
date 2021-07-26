@@ -10,3 +10,9 @@ define("USER", "root");
 define("PASSWORD", "root");
 
 define('CHARSET', 'utf8mb4');
+
+define('CONNECTION', "mysql:host=" . HOST . ";"
+    . "dbname=" . DB . ";"
+    . "user=" . USER . ";"
+    . "password=" . PASSWORD . ";"
+    . "charset=" . CHARSET);
