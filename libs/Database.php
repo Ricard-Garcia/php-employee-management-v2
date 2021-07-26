@@ -36,12 +36,11 @@ class Database
             ];
 
             $pdo = new PDO($connection, $this->user, $this->password, $options);
-
             return $pdo;
+            $pdo = null;
         } catch (PDOException $e) {
             $this->error = "Error connecting to Database";
             // Render en error view
-
         }
     }
 };
