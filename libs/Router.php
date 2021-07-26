@@ -1,16 +1,13 @@
 <?php
 require_once(CONTROLLERS . "ErrorController.php");
-// require_once(CONTROLLERS . "MainController.php");
 class Router
 {
     public function __construct()
     {
-        // echo "<p>New Router charged</p>";
+
         $url = isset($_GET["url"]) ? $_GET["url"] : null;
         $url = rtrim($url, "/");
         $url = explode("/", $url);
-
-        // echo "This is the url: " . print_r($url, true);
 
         $firstParam = ucfirst($url[0]);
 
@@ -19,27 +16,27 @@ class Router
             $controllerFile = CONTROLLERS . $firstParam . "Controller.php";
             if (file_exists($controllerFile)) {
                 require $controllerFile;
-                // Defining the final name
                 $controllerName = $firstParam . "Controller";
-                // Instancing the required controller
                 $controller = new $controllerName();
-                // Loading the corresponding model
                 $controller->loadModel($firstParam);
 
-                // Look for methods
                 $urlLength =  count($url);
-                // If there's only method
                 if ($urlLength == 1) {
                     $controller->defaultMethod();
                 } elseif ($urlLength > 1) {
-
-                    if ($urlLength > 2) {
-                        $param = $url[2];
-                        // Call method with given param
-                        $controller->{$url[1]}($param);
+                    if (method_exists($controller, $url[1])) {
+                        if ($urlLength > 2) {
+                            $param = $url[2];
+                            $controller->{$url[1]}($param);
+                        } else {
+                            $controller->{$url[1]}();
+                        }
                     } else {
-                        // Just load the method
-                        $controller->{$url[1]}();
+                        if ($url[0] == "employees") {
+                            header('Location:' . BASE_URL . '/employees/');
+                        } else {
+                            header('Location:' . BASE_URL . '/login/');
+                        }
                     }
                 }
                 // If no method, just render the view
@@ -47,19 +44,21 @@ class Router
                     $controller->render();
                 }
             } else {
-                // Add specific message
-                $controller = new ErrorController();
-                $controller->view->message = "Not valid controller";
-                $controller->render();
+                // Error controling
+                if ($url[0] == "employees") {
+                    header('Location:' . BASE_URL . '/employees/');
+                } else {
+                    header('Location:' . BASE_URL . '/login/');
+                }
             }
         }
         // Load the default controller
         else {
-            $controllerFile = CONTROLLERS . "LoginController.php";
-            require $controllerFile;
-            $controller = new LoginController();
-            $controller->defaultMethod();
-            $controller->loadModel("login");
+            if (session_status() == PHP_SESSION_NONE) {
+                header('Location:' . BASE_URL . '/login/');
+            } else {
+                header('Location:' . BASE_URL . '/employees/');
+            }
         }
     }
 }
