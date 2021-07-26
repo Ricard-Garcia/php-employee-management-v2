@@ -9,7 +9,7 @@ function logOut()
     session_destroy();
 
     if (!isset($_SESSION)) {
-      header("location: ../../index.php");
+      header("Location:../../index.php");
     }
   }
 }
