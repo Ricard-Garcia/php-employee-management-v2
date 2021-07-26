@@ -7,7 +7,7 @@ $("#jsGrid").jsGrid({
   sorting: true,
   paging: true,
   autoload: true,
-  pageSize: 10,
+  pageSize: 15,
   pageButtonCount: 5,
   selecting: true,
   deleteConfirm: "Do you really want to delete data?",

@@ -9,7 +9,9 @@ require TEMPLATES . "head.php";
   require VIEWS . "header.php";
   ?>
 
-  <main id="jsGrid"></main>
+  <main class="p-4">
+    <div id="jsGrid"></div>
+  </main>
   <?php
   require VIEWS . "footer.php";
   ?>
