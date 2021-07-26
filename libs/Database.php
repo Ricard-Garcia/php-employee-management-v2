@@ -43,8 +43,4 @@ class Database
             // Render en error view
         }
     }
-
-    public function __destruct()
-    {
-    }
 };
