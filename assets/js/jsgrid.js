@@ -32,8 +32,12 @@ $("#jsGrid").jsGrid({
     insertItem: function (item) {
       return $.ajax({
         type: "POST",
-        url: "library/employeeController.php",
+        url: "createEmployee",
         data: item,
+        success: function (item) {
+          console.log("INSERT: ", item);
+          return item;
+        },
       });
     },
     deleteItem: function (item) {
@@ -80,9 +84,8 @@ $("#jsGrid").jsGrid({
     {
       title: "Gender",
       name: "gender",
-      type: "hidden",
+      type: "text",
       width: 70,
-      css: "hidden-cell",
     },
     {
       title: "City",
